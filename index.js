@@ -4,9 +4,15 @@ let intensityAverage = [];
 let frequencyAverage = [];
 var audioBooster = 1;
 let volumeSlider = document.getElementById('volume');
+let variationSlider = document.getElementById('variation');
 let volumeEnhancer = 1;
 var volumeEnhance = function() {
     volumeEnhancer = parseInt(volumeSlider.value);
+}
+
+let variation = 1;
+var variationEnhancer = function() {
+  variation = parseInt(variationSlider.value) / 100;
 }
 let hue = document.getElementById('hue');
 function Demo(settings){
@@ -416,7 +422,7 @@ var animationID;
     // console.log(newPercentage, newIntensity);
     // console.log(Math.abs(frequencyAverage[3] - frequencyAverage[5]) / Math.abs(frequencyAverage[3] + frequencyAverage[5]) * 2);
     var newY = Math.round(newPercentage * this.height);
-    document.body.style.backgroundColor = `hsl(${newPercentage * 360 * 1.2 + parseInt(hue.value)}deg, 100%, ${(Math.round(newIntensity / 255 * 100) / 1.25 * 0.5)}%)`;
+    document.body.style.backgroundColor = `hsl(${newPercentage * 360 * 1.2 * variation + parseInt(hue.value)}deg, 100%, ${(Math.round(newIntensity / 255 * 100) / 1.25 * 0.5)}%)`;
     // ctx.fillRect(0, 0, this.width, this.height);
     
     ctx.fillStyle = `rgb(${intensity}, ${intensity}, ${intensity})`;

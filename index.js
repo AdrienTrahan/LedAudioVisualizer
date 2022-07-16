@@ -422,8 +422,15 @@ var animationID;
     // console.log(newPercentage, newIntensity);
     // console.log(Math.abs(frequencyAverage[3] - frequencyAverage[5]) / Math.abs(frequencyAverage[3] + frequencyAverage[5]) * 2);
     var newY = Math.round(newPercentage * this.height);
-    document.body.style.backgroundColor = `hsl(${newPercentage * 360 * 1.2 * variation + parseInt(hue.value)}deg, 100%, ${(Math.round(newIntensity / 255 * 100) / 1.25 * 0.5)}%)`;
+    let hslColors = [
+      newPercentage * 360 * 1.2 * variation + parseInt(hue.value),
+        100,
+        (Math.round(newIntensity / 255 * 100) / 1.25 * 0.5)
+    ];
+    document.body.style.backgroundColor = `hsl(${hslColors[0]}deg, ${hslColors[1]}%, ${hslColors[2]}%)`;
     // ctx.fillRect(0, 0, this.width, this.height);
+    let rgbColors = hslToRgb(hslColors[0] % 360, hslColors[1] / 100, hslColors[2] / 100);
+    window.webkit.messageHandlers.receiveColor.postMessage({colors: rgbColors})
     
     ctx.fillStyle = `rgb(${intensity}, ${intensity}, ${intensity})`;
     ctx.fillRect(this.width - this.speed, this.height - y,
@@ -718,4 +725,28 @@ function getUserMedia(
     } catch (e) {
         alert('getUserMedia threw exception :' + e)
     }
+}
+function hslToRgb(h, s, l){
+  var r, g, b;
+
+  if(s == 0){
+      r = g = b = l; // achromatic
+  }else{
+      var hue2rgb = function hue2rgb(p, q, t){
+          if(t < 0) t += 1;
+          if(t > 1) t -= 1;
+          if(t < 1/6) return p + (q - p) * 6 * t;
+          if(t < 1/2) return q;
+          if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+          return p;
+      }
+
+      var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      var p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1/3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1/3);
+  }
+
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }

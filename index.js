@@ -14,6 +14,7 @@ let variation = 1;
 var variationEnhancer = function() {
   variation = parseInt(variationSlider.value) / 100;
 }
+console.log(variation);
 let hue = document.getElementById('hue');
 function Demo(settings){
 	var self = this;
@@ -364,6 +365,7 @@ var animationID;
 
   renderFreqDomain: function() {
     volumeEnhance();
+    variationEnhancer();
     var freq = (new Uint8Array(this.analyser.frequencyBinCount));
     this.analyser.getByteFrequencyData(freq);
     freq = freq.map(x => x + volumeEnhancer);

@@ -423,7 +423,7 @@ var animationID;
     // console.log(Math.abs(frequencyAverage[3] - frequencyAverage[5]) / Math.abs(frequencyAverage[3] + frequencyAverage[5]) * 2);
     var newY = Math.round(newPercentage * this.height);
     let hslColors = [
-      newPercentage * 360 * 1.2 * variation + parseInt(hue.value),
+      newPercentage * 360 * variation + parseInt(hue.value),
         100,
         (Math.round(newIntensity / 255 * 100) / 1.25 * 0.5)
     ];

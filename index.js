@@ -223,24 +223,6 @@ var animationID;
 
 	var demo = new Demo({
 		ui: {
-      logScale:{
-        title: "Logarithmic Frequency Scale?",
-        value: true
-      },
-      soundSamples:{
-        title: "Sound Sample",
-        value: "song-thrush-rspb",
-        values: [
-          ["Bird Song (Song Thrush)", "song-thrush-rspb"],
-          ["Orca (Killer whale)","transient-orca"],
-          ["Police Siren","police-siren"],
-          ["Modem (Dial up)","modem"],
-          ["Violin","violin"],
-          ["Whistling","whistle"],
-          ["Sad Trombone","sad-trombone"]
-          //["Erskine Butterfield", "erskine-butterfield"]
-        ] //the first value in each pair is the label, the second is the value
-      }
 		},
 
 		canvas: document.getElementById("canvas"),
@@ -270,23 +252,6 @@ var animationID;
 		},
 
 		update: function(e){
-      
-      if (e == "logScale"){
-        if (this.ui.logScale.value === false){
-          this.log = false;
-        } else {
-          this.log = true;
-        }
-        // this.ctx.fillRect(0,0,this.width, this.height, this.speed, this.speed);
-        this.logChanged();
-      }
-
-      if (e == "soundSamples"){
-        audio.pause();
-        window.cancelAnimationFrame(animationID);
-        this.ctx.fillRect(0,0,this.width, this.height);
-        audio.src = '/demos/spectrum-analyzer/' + this.ui.soundSamples.value + ".mp3";
-      }
 		},
 
 

@@ -10,39 +10,21 @@
 	<script defer src="./index.js"></script>
 </head>
 <body>
-	<div id="demo" class="" style="height: 549px;">
-	
-		<canvas id="canvas" width="611" height="409"></canvas><canvas id="canvas-log"></canvas><canvas id="labels" width="611" height="409"></canvas></div>
-		<div class="clearfix" id="ui-container">
-			hue start value:
-			<input type="range" min="0" max="360" value="0" class="slider" id="hue">
-			<br>
-			volume:
-			<input type="range" min="0" max=200" value="100" class="slider" id="volume">
-			<br>
-			hue variation:
-			<input type="range" min="0" max="700" value="100" class="slider" id="variation">
-			<style type="text/css" class='demo-specific-styles'>
-				*{
-					margin: 0px;
-				}
-				canvas {
-					 position: absolute;
-					 /*background: black;*/
-					width: 100%;
-					margin: 0px;
-
-					 height: 200px;
-				   }
-				#canvas{
-					background: black;
-				}
-				 #demo{
-					 height:540px;
-				 }
-				 .demo audio{
-					 width: 100%;
-				 }
-		</style>
+	<div id="demo" class="canvases" style="height: 549px;">
+		<canvas id="canvas" width="611" height="409"></canvas><canvas id="canvas-log"></canvas><canvas id="labels" width="611" height="409"></canvas>
+	</div>
+	<div class="clearfix" id="ui-container">
+		<h2>hue start value:</h2>
+		<br>
+		<input type="range" min="0" max="360" value="0" class="slider" id="hue">
+		<br>
+		<h2>volume:</h2>
+		<br>
+		<input type="range" min="0" max=200" value="100" class="slider" id="volume">
+		<br>
+		hue variation:
+		<br>
+		<input type="range" min="0" max="700" value="100" class="slider" id="variation">
+	</div>
 </body>
 </html>

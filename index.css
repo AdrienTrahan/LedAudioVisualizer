@@ -3,6 +3,8 @@ body{
 }
 *{
     margin: 0px;
+    font-family: sans-serif;
+    color: white;
 }
 canvas {
     position: absolute;
@@ -11,7 +13,7 @@ canvas {
     margin: 0px;
     height: 200px;
 }
-/* .canvases *{
+.canvases *{
     display: none;
 }
 .canvases{
@@ -23,13 +25,19 @@ canvas {
     overflow: hidden;
     z-index: -1;
     opacity: 0;
-} */
+}
 #canvas{
     background: black;
 }
 #demo{
     height:540px;
 }
+.clearfix{
+    padding: 200px 0px 0px 0px;
+}
 .demo audio{
+    width: 100%;
+}
+input{
     width: 100%;
 }

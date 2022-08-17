@@ -398,7 +398,6 @@ var animationID;
     // ctx.fillRect(0, 0, this.width, this.height);
     let rgbColors = hslToRgb(hslColors[0] % 360 / 360, hslColors[1] / 100, hslColors[2] / 100);
     if (window.webkitAudioContext != undefined){
-      console.log("sending Color")
     window.webkit.messageHandlers.receiveColor.postMessage({colors: rgbColors})
     }
     

@@ -397,9 +397,9 @@ var animationID;
     document.body.style.backgroundColor = `hsl(${hslColors[0]}deg, ${hslColors[1]}%, ${hslColors[2]}%)`;
     // ctx.fillRect(0, 0, this.width, this.height);
     let rgbColors = hslToRgb(hslColors[0] % 360 / 360, hslColors[1] / 100, hslColors[2] / 100);
-    if (window.webkit){
-      window.webkit.messageHandlers.receiveColor.postMessage({colors: rgbColors})
-    }
+//     if (window.webkit){
+    window.webkit.messageHandlers.receiveColor.postMessage({colors: rgbColors})
+//     }
     
     
     ctx.fillStyle = `rgb(${intensity}, ${intensity}, ${intensity})`;
